@@ -80,6 +80,30 @@ public class MineralCard extends Card {
         boolean check = true;
 
         switch (attribute_to_compare) {
+            case "Hardness":
+                if (hardness < otherCard.getHardness()) {
+                    check = false;
+                }
+                break;
+            case "Specific gravity":
+                if (specificGravity < otherCard.getSpecificGravity()) {
+                    check = false;
+                }
+                break;
+            case "Cleavage":
+                if (convert(cleavage, cleavageValues) < convert(otherCard.getCleavage(), cleavageValues))
+                    check = false;
+                break;
+            case "Crustal abundance":
+                if (convert(crustal_abundance, crustal_abundance_values) < convert(otherCard.getCrustal_abundance(), crustal_abundance_values))
+                    check = false;
+                break;
+            case "Economic value":
+                if (convert(economic_value, economicValues) < convert(otherCard.getEconomic_value(), economicValues))
+                    check = false;
+                break;
+        }
+        return check;
 
     }
 
